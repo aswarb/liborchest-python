@@ -21,7 +21,6 @@ class OSType(Enum):
 
 
 def get_os():
-    # Using sys.platform
     if sys.platform.startswith("win"):
         return OSType.WINDOWS
     elif sys.platform == "darwin":
@@ -62,4 +61,4 @@ def get_blob_path() -> str:
 
 
 if __name__ == "__main__":
-    print("liborchest config.py")
+    print("liborchest.config")
