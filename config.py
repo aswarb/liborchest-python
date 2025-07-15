@@ -31,6 +31,43 @@ def get_os():
         return OSType.UNKNOWN
 
 
+def get_default_path() -> str:
+    path = UNKOWN_DEFAULT_PATH
+
+    match os:
+        case OSType.MACOS:
+            path = MACOS_DEFAULT_PATH
+        case OSType.LINUX:
+            path = LINUX_DEFAULT_PATH
+        case OSType.WINDOWS:
+            path = WINDOWS_DEFAULT_PATH
+        case OSType.UNKNOWN:
+            path = UNKOWN_DEFAULT_PATH
+    return path
+
+
+def create_directory(path: str):
+    if not os.path.exists(path):
+        os.makedirs(path)
+
+
+def get_data_dir():
+    path = get_default_path()
+    f"{path}{DATA_SUBDIR}"
+
+
+def get_script_dir():
+    path = get_default_path()
+    f"{path}{SCRIPTS_SUBDIR}"
+
+
+def make_default_dirs():
+    path = get_default_path()
+
+    create_directory(f"{path}{SCRIPTS_SUBDIR}")
+    create_directory(f"{path}{DATA_SUBDIR}")
+
+
 def validate_blob_exists(path: str) -> bool:
     return False
 

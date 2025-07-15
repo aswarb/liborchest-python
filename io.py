@@ -13,9 +13,9 @@ def read_stdin_bytes() -> bytes:
     return sys.stdin.buffer.read()
 
 
-def write_stdin_bytes(data: bytes):
-    sys.stdout.buffer.write(data)
-    sys.stdout.buffer.flush()
+def write_stdout_string(data: str):
+    sys.stdout.write(data)
+    sys.stdout.flush()
 
 
 def read_blob(fileName: str) -> bytes:
@@ -30,7 +30,6 @@ def read_blob(fileName: str) -> bytes:
 
 
 def write_blob(filePath: str, data: bytes, writemode: WriteMode):
-
     fileExists = os.path.exists(filePath)
 
     if writemode == WriteMode.WRITE:
